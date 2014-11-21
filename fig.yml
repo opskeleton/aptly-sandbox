@@ -1,4 +1,4 @@
-default:
+aptly:
   hostname: aptly
   domainname: local
   build: dockerfiles/default 
