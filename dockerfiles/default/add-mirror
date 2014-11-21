@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# $1 - mirror name
+# $2 - url (http://il.archive.ubuntu.com/ubuntu/)
+# $3 - distro (suacy)
+# $4 - component (main/restricted etc..)
+name=$1
+url=$2
+distro=$3
+component=$4
+
+docker run --net=bridge -v /media/ubuntu-mirror:/data/aptly narkisr/aptly \
+aptly -architectures='amd64,i386' mirror create -with-sources=false -ignore-signatures=true $name $url $distro $component

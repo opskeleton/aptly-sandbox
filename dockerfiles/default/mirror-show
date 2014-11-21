@@ -1,0 +1,1 @@
+docker run --net=bridge -v /media/ubuntu-mirror:/data/aptly narkisr/aptly aptly mirror show $1

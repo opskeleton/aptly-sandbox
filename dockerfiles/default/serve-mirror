@@ -1,0 +1,2 @@
+timestamp=$(date +%s)
+sudo docker run -n -v /media/ubuntu-mirror:/data/aptly -p 8080:8080 narkisr/aptly aptly serve

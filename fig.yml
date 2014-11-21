@@ -1,0 +1,9 @@
+default:
+  hostname: aptly
+  domainname: local
+  build: dockerfiles/default 
+  ports: 
+   - 8080:80
+  volumes:
+   - /var/aptly:/data/aptly
+

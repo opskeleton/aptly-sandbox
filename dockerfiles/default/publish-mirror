@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# $1 - parent repo name like ubuntu
+timestamp=$(date +%s)
+docker run --net=bridge -v /media/ubuntu-mirror:/data/aptly narkisr/aptly aptly snapshot create $1-$timestamp from mirror $1
+docker run --net=bridge -v /media/ubuntu-mirror:/data/aptly narkisr/aptly aptly publish snapshot $1-$timestamp $1
