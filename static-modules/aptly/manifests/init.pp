@@ -12,4 +12,8 @@ class aptly {
   package{'aptly':
     ensure  => present
   }
+
+  package{'bzip2':
+    ensure  => present
+  }
 }
