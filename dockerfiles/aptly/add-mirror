@@ -8,5 +8,5 @@ url=$2
 distro=$3
 component=$4
 
-docker run --net=bridge -v /media/ubuntu-mirror:/data/aptly narkisr/aptly \
+docker run --net=bridge -v /media/ubuntu-mirror:/data/aptly aptlysandbox_aptly \
 aptly -architectures='amd64,i386' mirror create -with-sources=false -ignore-signatures=true $name $url $distro $component

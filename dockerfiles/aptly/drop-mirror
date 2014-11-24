@@ -5,11 +5,11 @@ prefix=$1
 distro=$2
 name=$3
 
-docker run --net=bridge -v /media/ubuntu-mirror:/data/aptly narkisr/aptly aptly publish drop $distro $prefix
+docker run --net=bridge -v /media/ubuntu-mirror:/data/aptly aptlysandbox_aptly aptly publish drop $distro $prefix
 
-docker run --net=bridge -v /media/ubuntu-mirror:/data/aptly narkisr/aptly aptly snapshot list | grep /$prefix-.*/ | \
+docker run --net=bridge -v /media/ubuntu-mirror:/data/aptly aptlysandbox_aptly aptly snapshot list | grep /$prefix-.*/ | \
 tr -s ' ' | cut -d ' ' -f 3 | \
 sed "s/\[//g" | sed "s/\]//g" | sed "s/\://g" | \
-xargs -I repo docker run --net=bridge -v /media/ubuntu-mirror:/data/aptly narkisr/aptly aptly snapshot drop repo
+xargs -I repo docker run --net=bridge -v /media/ubuntu-mirror:/data/aptly aptlysandbox_aptly aptly snapshot drop repo
 
-docker run --net=bridge -v /media/ubuntu-mirror:/data/aptly narkisr/aptly aptly mirror drop $name
+docker run --net=bridge -v /media/ubuntu-mirror:/data/aptly aptlysandbox_aptly aptly mirror drop $name
